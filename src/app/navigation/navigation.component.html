@@ -1,0 +1,28 @@
+<div class="menu">
+
+  <div class="name">
+    <h1>beyondbrackets</h1>
+  </div>
+
+  <div class="icon-search">
+
+  </div>
+  <div class="search">
+    <h1>Search:</h1><input type="search" />
+  </div>
+
+  <div class="icon-menu">
+    <label class="navigation-toggle" for="navigation-checkbox">
+      <div class="navigation-toggle-icon"></div>
+      <span class="navigation-toggle-label">Menu</span>
+    </label>
+  </div>
+  <input id="navigation-checkbox" class="navigation-checkbox" type="checkbox" [(ngModel)]="hamburger">
+  <nav>
+    <ul>
+      <li><a routerLink="/">home</a></li>
+      <li><a routerLink="/about">about</a></li>
+    </ul>
+  </nav>
+
+</div>
