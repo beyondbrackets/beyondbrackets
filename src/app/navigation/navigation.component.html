@@ -1,14 +1,14 @@
 <div class="menu">
 
   <div class="name">
-    <h1>beyondbrackets</h1>
+    <h1>]db[</h1>
   </div>
 
   <div class="icon-search">
 
   </div>
-  <div class="search">
-    <h1>Search:</h1><input type="search" />
+  <div class="search" #mySearchDiv>
+    <input type="search" (blur)="onBlur()" (focus)="onFocus()" />
   </div>
 
   <input id="navigation-checkbox" class="navigation-checkbox" type="checkbox" [(ngModel)]="hamburger">
