@@ -3,8 +3,14 @@
 /* *********************************
            Variables
   ********************************** */
+$break-small: 35rem;
+$break-medium: 50rem;
+$break-large: 75rem;
+$break-xlarge: 100rem;
+
 $navbar-height: 5rem;
 
+$hamburger-color: black;
 /* *********************************
            Grid
   ********************************** */
@@ -27,13 +33,6 @@ $navbar-height: 5rem;
   background: grey;
 }
 
-.icon-menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: green;
-}
-
 /* *********************************
            Styles
   ********************************** */
@@ -49,11 +48,12 @@ ul,li{
 }
 
 .icon-menu{
-
 }
 nav {
   position: absolute;
-  top: -100%;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
   width: 100vw;
   li{
     list-style:none;
@@ -79,8 +79,8 @@ nav {
   left:0;
   top: -100%;
   z-index: 999;
-  transition-timing: 1s; 
-    box-shadow: 0 0 10px #000;
+  transition-duration: 1s; 
+  box-shadow: 0 0 10px #000;
   padding: 15px;
   line-height: 75px;
   h1{
@@ -98,18 +98,63 @@ nav {
 /* *********************************
            Hamburger animation
   ********************************** */
-.navigation-checkbox {
+input[type="checkbox"].navigation-checkbox {
   display: none;
 }
 
-.navigation-toggle {
-  display: block;
-  width: $navbar-height;
-  height: $navbar-height;
-  background: black;
-  cursor: pointer;
+input[type="checkbox"].navigation-checkbox:checked + label + nav {
+  transform: translateY($navbar-height);
 }
 
-.navigation-checkbox:checked + nav {
-      top: $navbar-height ;
-} 
+input[type="checkbox"].navigation-checkbox:checked + .hamburger {
+  		&::before, &::after {
+  			transition: box-shadow 0.2s, transform 0.5s 0.2s;
+  		}
+  		&::before {
+  			transform:
+  				rotate(45deg)
+  				translate(8.5px, 8.5px);
+	  	}
+  		&::after {
+		  	transform:
+			  	rotate(-45deg)
+		  		translate(8.5px, -8.5px);
+	  		box-shadow: 0 -8.5px 0 0 transparent;
+  		}
+  	}
+	
+
+
+.hamburger {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		@media screen and (min-width: $break-medium) {
+			display: none;
+		}
+}
+
+.hamburger {
+	height: 30px;
+	width: 30px;
+	background: transparent;
+	cursor: pointer;
+	$hamburger-color: lighten(green, 10%);
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		display: block;
+		height: 5px;
+		width: 100%;
+		border-radius: 1px;
+		background: $hamburger-color;
+		transition: box-shadow 0.2s 0.2s, transform 0.3s;
+	}
+	&::after {
+		top: auto;
+		bottom: 0;
+		box-shadow: 0 -12px 0 0 $hamburger-color;
+	}
+}
