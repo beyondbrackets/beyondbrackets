@@ -1,22 +1,21 @@
 <div class="menu">
 
-  <div class="name">
+  <div class="nav-name">
     <h1>]db[</h1>
   </div>
 
-  <div class="icon-search">
-
-  </div>
-  <div class="search" #mySearchDiv>
-    <input type="search" (blur)="onBlur()" (focus)="onFocus()" />
+  <div class="nav-search" #mySearchDiv>
+    <input type="search" (blur)="onBlur()" (focus)="onFocus()" placeholder="search..." />
   </div>
 
-  <input id="navigation-checkbox" class="navigation-checkbox" type="checkbox" [(ngModel)]="hamburger">
-  <label class="hamburger" for="navigation-checkbox"></label>
-  <nav>
-    <ul>
-      <li><a routerLink="/">home</a></li>
-      <li><a routerLink="/about">about</a></li>
-    </ul>
-  </nav>
+  <div class="nav-menu">
+    <input id="navigation-checkbox" class="navigation-checkbox" type="checkbox" [(ngModel)]="hamburger">
+    <label class="hamburger" for="navigation-checkbox"></label>
+    <nav>
+      <ul>
+        <li><a routerLink="/">home</a></li>
+        <li><a routerLink="/about">about</a></li>
+      </ul>
+    </nav>
+  </div>
 </div>

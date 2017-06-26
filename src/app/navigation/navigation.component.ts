@@ -30,6 +30,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   }
 
   onBlur(): void {
-    this.renderer.setStyle(this.searchDiv.nativeElement, 'width', '5rem');
-    this.renderer.setStyle(this.searchDiv.nativeElement, 'right', '5rem');  }
+    this.renderer.setStyle(this.searchDiv.nativeElement, 'width', '25vw');
+    this.renderer.setStyle(this.searchDiv.nativeElement, 'right', '0');  }
 }

@@ -1,4 +1,4 @@
-@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/colors.scss";
 
 /* *********************************
            Variables
@@ -9,34 +9,43 @@ $break-large: 75rem;
 $break-xlarge: 100rem;
 
 $navbar-height: 5rem;
+$hamburger-width: 30px;
+$searchbox-width: 40px;
 
-$light-color: rgb(78, 177, 186);
+$light-color: $global-light-color;
 $hamburger-color: $light-color;
-$dark-color: rgb(30, 60, 70);
+$dark-color: $global-dark-color;
+$search-background: $global-background;
 /* *********************************
            Grid
   ********************************** */
-.menu {
-}
 
-.name {
+.nav-name {
   position: absolute;
   top: 0;
-  left: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  left: 25vw;
+  width: 50vw;
+  text-align: center;
   background: $dark-color;
   color: $light-color;
 }
 
-.icon-search {
+.nav-search {
   position: absolute;
   top: 0;
-  right: $navbar-height;
-  width: $navbar-height;
+  width: 25vw;
+  right: 0;
   height: $navbar-height;
   background: $dark-color;
 }
+
+.nav-menu {
+  position: absolute;
+  top: 0;
+  width: 25vw;
+  left: 0;
+  height: $navbar-height;
+  background: $dark-color;}
 
 /* *********************************
            Styles
@@ -52,10 +61,8 @@ ul,li{
   background: $dark-color;
 }
 
-.icon-menu{
-}
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transform: translateY(-100%);
@@ -71,10 +78,36 @@ nav {
       text-decoration: none;
       font-size: 24pt;
       &:hover{
-        background:  darken(#0099cc, 5%);
+        background: darken($light-color, 10%);
         text-decoration: none;
       }
     }
+  }
+}
+
+@media screen and (min-width: $break-small) {
+	nav {
+    transform: none;
+    li {
+      float: left;
+      a {
+        height: calc(#{$navbar-height} - 1rem);
+        margin: 0;
+        padding: 0.5rem;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        background: $dark-color;
+        color: $light-color;
+            &:hover{
+              background: darken($dark-color, 10%);
+            }
+      }
+    }
+  }
+  div.nav-search {
+    width: unset;
+    float: right;
   }
 }
 
@@ -111,18 +144,18 @@ input[type="checkbox"].navigation-checkbox:checked + .hamburger {
 .hamburger {
 		position: absolute;
 		top: 25px;
-		right: 25px;
-		@media screen and (min-width: $break-medium) {
+		right: calc(12.5vw - (#{$hamburger-width} / 2));
+		@media screen and (min-width: $break-small) {
 			display: none;
 		}
 }
 
 .hamburger {
 	height: 30px;
-	width: 30px;
+	width: $hamburger-width;
 	background: transparent;
 	cursor: pointer;
-	$hamburger-color: lighten($hamburger-color, 10%);
+	$hamburger-color: $hamburger-color;
 	&::before,
 	&::after {
 		content: '';
@@ -149,12 +182,12 @@ input[type="checkbox"].navigation-checkbox:checked + .hamburger {
   input[type=search] {
     position: absolute;
     top: $navbar-height / 4;
-    right: $navbar-height / 4;
+    right: calc(12.5vw - #{$searchbox-width} / 2);
   	outline: none;
 
-	  background: rgb(245, 245, 245) url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	  background: $search-background url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
     padding: 9px 10px 9px 32px;
-    width: 40px;
+    width: $searchbox-width;
     
     -webkit-border-radius: 10em;
     -moz-border-radius: 10em;
@@ -167,6 +200,24 @@ input[type="checkbox"].navigation-checkbox:checked + .hamburger {
 	  padding-left: 10px;
 	  color: transparent;
 	  cursor: pointer;
+    &::-webkit-input-placeholder {
+        color: transparent;
+      }
+    @media screen and (min-width: $break-small) {
+	    width: $searchbox-width * 2;
+
+		}
+    @media screen and (min-width: $break-medium) {
+	    width: $searchbox-width * 4;
+   	  padding-left: 35px;
+      &:focus::-webkit-input-placeholder {
+         color: transparent;
+       }
+      &::-webkit-input-placeholder {
+        color: $dark-color;
+        opacity: 0.4;
+      }
+		}
   }
 
   input[type=search]:focus {
@@ -174,19 +225,20 @@ input[type="checkbox"].navigation-checkbox:checked + .hamburger {
 	  width: 80vw;
     right: 10vw;
 	  padding-left: 32px;
-	  color: #000;
-	  background-color: #fff;
+	  color: $dark-color;
+	  background-color: $search-background;
 	  cursor: auto;
     font-size: 1.5rem;
+    @media screen and (min-width: $break-small) {
+	    width: 30vw;
+		}    
+    @media screen and (min-width: $break-medium) {
+	    width: 35vw;
+		}
 }
 
-.search {
-    position: absolute;
+.nav-search {
     z-index: 99999;
     background: $dark-color;
-    height: $navbar-height;
-    right:$navbar-height;
-    top: 0;
-    width: $navbar-height;
 }
 
