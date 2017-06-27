@@ -1,14 +1,8 @@
-@import "../../assets/scss/colors.scss";
+@import "../../assets/scss/common-styles.scss";
 
 /* *********************************
            Variables
   ********************************** */
-$break-small: 35rem;
-$break-medium: 50rem;
-$break-large: 75rem;
-$break-xlarge: 100rem;
-
-$navbar-height: 5rem;
 $hamburger-width: 30px;
 $searchbox-width: 40px;
 
@@ -21,12 +15,21 @@ $search-background: $global-background;
   ********************************** */
 
 .nav-name {
-  position: absolute;
-  top: 0;
-  left: 25vw;
-  width: 50vw;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $navbar-height;
   background: $dark-color;
+  color: $light-color;
+}
+
+.nav-name h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $navbar-height;
+  margin: 0;
+  vertical-align: middle;
   color: $light-color;
 }
 
@@ -59,14 +62,22 @@ ul,li{
 .menu{
   height: $navbar-height;
   background: $dark-color;
+    @media screen and (min-width: $break-small) {
+      &:hover {
+        .nav-name h1{
+          color: $dark-color;
+          text-shadow: -1px 0 $bright-blue, 0 1px $bright-blue, 1px 0 $bright-blue, 0 -1px $bright-blue;
+          }      
+      }
+    }
 }
 
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   transform: translateY(-100%);
-  width: 100vw;
+  width: 50vw;
   li{
     list-style:none;
     text-align:center;
@@ -104,10 +115,6 @@ nav {
             }
       }
     }
-  }
-  div.nav-search {
-    width: unset;
-    float: right;
   }
 }
 

@@ -1,3 +1,5 @@
+@import "../assets/scss/common-styles.scss";
+
 .wrapper {
   display: grid;
 }
@@ -7,5 +9,15 @@
 }
 
 .contents {
-    
+  padding: 0 5vw 10vh;
+    @media screen and (min-width: $break-small) {
+      padding: 0 10vw 10vh;
+		}
+    @media screen and (min-width: $break-medium) {
+      padding: 0 15vw 10vh;
+		}
+    @media screen and (min-width: $break-large) {
+      padding: 0 20vw 10vh;
+		}
+
 }
