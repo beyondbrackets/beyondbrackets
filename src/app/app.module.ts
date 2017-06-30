@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PostlistComponent } from './postlist/postlist.component';
+import { PostService } from './services/post.service';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     AboutComponent,
     PageNotFoundComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    PostlistComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
