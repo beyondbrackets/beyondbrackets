@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { Post } from "app/model/post.model";
+import { MarkdownModule } from 'angular2-markdown';
 
 @Component({
   selector: 'app-postlist',

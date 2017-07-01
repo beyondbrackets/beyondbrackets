@@ -2,6 +2,6 @@
 	<div *ngFor="let post of posts">
 		<h1 class="entry-title">{{post.title}}</h1>
 		<h2 class=entry-meta>Last updated {{post.date}}</h2>
-		<p>{{post.contents}}</p>
+		<markdown>{{post.contents}}</markdown>
 	</div>
 </section>

@@ -12,6 +12,7 @@ import { PostService } from './services/post.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MarkdownModule } from 'angular2-markdown';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MarkdownModule.forRoot()
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
