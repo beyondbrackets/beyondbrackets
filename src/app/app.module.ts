@@ -13,11 +13,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MarkdownModule } from 'angular2-markdown';
+import { CreatePostComponent } from "app/create-post/create-post.component";
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'write', component: CreatePostComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -27,14 +31,16 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     HomeComponent,
     NavigationComponent,
-    PostlistComponent
+    PostlistComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
