@@ -2,6 +2,7 @@
   <form [formGroup]="writeForm" (ngSubmit)="createPost()">
     <input formControlName="date" type="text" datetime="dd-MM-yyyy" placeholder="date">
     <input formControlName="title" type="text" placeholder="title">
+    <input formControlName="url" type="text" placeholder="url">
     <textarea formControlName="contents" placeholder="contents"></textarea>
     <button type="submit">Create</button>
   </form>

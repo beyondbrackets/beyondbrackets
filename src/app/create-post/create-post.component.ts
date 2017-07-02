@@ -18,23 +18,25 @@ export class CreatePostComponent implements OnInit {
   }
 
   public writeForm = this.fb.group({
-    date: ['date', Validators.required],
-    title: ['title', Validators.required],
-    contents: ['contents', Validators.required],
+    date: ['', Validators.required],
+    title: ['', Validators.required],
+    url: ['', Validators.required],
+    contents: ['', Validators.required],
   });
 
   createPost() {
-    let url: string = "http://localhost:8080/api/posts";
+    let restMethod: string = "/posts";
 
     let date = this.writeForm.controls.date.value;
     let title = this.writeForm.controls.title.value;
+    let url = this.writeForm.controls.url.value;
     let contents = this.writeForm.controls.contents.value;
 
-    let post: Post = new Post(date, title, contents);
+    let post: Post = new Post(date, title, url, contents);
 
     console.log(post);
-    
-    this.postService.createPost(url, post)
+
+    this.postService.createPost(restMethod, post)
       .subscribe(
       result => console.log(result)
       );

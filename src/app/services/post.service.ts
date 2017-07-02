@@ -24,10 +24,10 @@ export class PostService {
     createPost(url: string, param: any): Observable<any> {
         let post = JSON.stringify(param);
         return this.http
-            .post(url, post, { headers: this.getHeaders() })
-        .map(this.extractData)
-        .catch(this.handleError);
-    }   
+            .post(this.backend + url, post, { headers: this.getHeaders() })
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
 
     private extractData(res: Response) {
         let body = res.json();
@@ -40,7 +40,7 @@ export class PostService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-    
+
     private getHeaders() {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
