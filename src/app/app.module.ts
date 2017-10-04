@@ -21,14 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'posts/:id', component: PostComponent },
   { path : 'posts', component: PostsComponent },
   // { path: 'about', component: AboutComponent },
-  { path: 'write',
-    component: CreatePostComponent
+  // { path: 'write',
+  //  component: CreatePostComponent
     // canActivate: [LoginRouteGuard],
     // canDeactivate: [SavePostGuard]
-   },
+  // },
+  { path: 'posts/:id', component: PostComponent },  
   { path: '**', component: PageNotFoundComponent },
 ];
 

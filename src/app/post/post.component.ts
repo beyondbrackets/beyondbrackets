@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import { Post } from "app/model/post.model";
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-post',
@@ -7,13 +9,14 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  id: string;
+  private post: Post;
 
-  constructor(private routeParams: ActivatedRoute) { }
+  constructor(
+    private postService: PostService,
+    private routeParams: ActivatedRoute) { }
 
   ngOnInit() {
-    this.routeParams.params.subscribe(params => {
-        this.id = params['id'];
-      });
-    }
+    let id = this.routeParams.snapshot.paramMap.get('id');
+    this.postService.findOne(id).subscribe(p => this.post = p);
+  }
 }

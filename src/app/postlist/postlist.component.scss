@@ -2,6 +2,15 @@
 
 $transition-timing: .7s;
 
+.link-wrapper{
+    margin: 0;
+    padding: 0;
+  }
+
+  .entry-meta {
+      padding-left: 0.2rem;
+  }
+
 .post-link,.post-link:visited,.post-link:hover,.post-link:active {
     text-decoration: none;
     color: $global-dark-color;

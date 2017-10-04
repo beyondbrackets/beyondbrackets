@@ -18,7 +18,15 @@ export class PostService {
         let post$ = this.http
             .get(`${this.backend}/posts/latest`, { headers: this.getHeaders() })
             .map(mapPost);
-        return post$;    }
+        return post$;    
+    }
+
+    findOne(id: any): Observable<Post> {
+        let post$ = this.http
+        .get(`${this.backend}/posts/${id}`, { headers: this.getHeaders() })
+        .map(mapPost);
+        return post$;      
+    }
 
     getAll(): Observable<Post[]> {
         let post$ = this.http
