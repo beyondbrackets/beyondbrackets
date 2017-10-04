@@ -14,6 +14,12 @@ export class PostService {
     constructor(private http: Http) {
     }
 
+    getMostRecent(): Observable<Post> {
+        let post$ = this.http
+            .get(`${this.backend}/posts/latest`, { headers: this.getHeaders() })
+            .map(mapPost);
+        return post$;    }
+
     getAll(): Observable<Post[]> {
         let post$ = this.http
             .get(`${this.backend}/posts`, { headers: this.getHeaders() })
@@ -47,6 +53,10 @@ export class PostService {
         headers.append('Content-Type', 'application/json');
         return headers;
     }
+}
+
+function mapPost(response: Response): Post {
+    return response.json();
 }
 
 function mapPosts(response: Response): Post[] {

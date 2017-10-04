@@ -1,1 +1,25 @@
 @import "../../assets/scss/common-styles.scss";
+
+$transition-timing: .7s;
+
+.post-link,.post-link:visited,.post-link:hover,.post-link:active {
+    text-decoration: none;
+    color: $global-dark-color;
+    padding: 0.2rem;
+    
+    -o-transition:$transition-timing;
+    -ms-transition:$transition-timing;
+    -moz-transition:$transition-timing;
+    -webkit-transition:$transition-timing;
+    transition:$transition-timing;
+}
+
+.post-link:hover {
+    background: $global-light-color;
+
+    -o-transition:$transition-timing;
+    -ms-transition:$transition-timing;
+    -moz-transition:$transition-timing;
+    -webkit-transition:$transition-timing;
+    transition:$transition-timing;
+}

@@ -34,8 +34,6 @@ export class CreatePostComponent implements OnInit {
 
     let post: Post = new Post(date, title, url, contents);
 
-    console.log(post);
-
     this.postService.createPost(restMethod, post)
       .subscribe(
       result => console.log(result)

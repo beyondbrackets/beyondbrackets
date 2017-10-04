@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
+import { PostComponent } from './post/post.component';
+import { PostsComponent } from './posts/posts.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostlistComponent } from './postlist/postlist.component';
 import { PostService } from './services/post.service';
@@ -19,8 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'write', component: CreatePostComponent },
+  { path: 'posts/:id', component: PostComponent },
+  { path : 'posts', component: PostsComponent },
+  // { path: 'about', component: AboutComponent },
+  { path: 'write',
+    component: CreatePostComponent
+    // canActivate: [LoginRouteGuard],
+    // canDeactivate: [SavePostGuard]
+   },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -28,6 +36,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AboutComponent,
+    PostComponent,
+    PostsComponent,
     PageNotFoundComponent,
     HomeComponent,
     NavigationComponent,

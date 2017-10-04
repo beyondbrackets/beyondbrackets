@@ -1,1 +1,5 @@
-<app-postlist></app-postlist>
+<section *ngIf="post" class = "panel-body">
+            <h1 class="entry-title">{{post.title}}</h1>
+            <h2 class=entry-meta>Last updated {{post.date}}</h2>
+            <markdown>{{post.contents}}</markdown>
+    </section>

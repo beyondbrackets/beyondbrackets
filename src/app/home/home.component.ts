@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PostlistComponent } from '../postlist/postlist.component';
+import { PostService } from '../services/post.service';
+import { Post } from "app/model/post.model";
+import { MarkdownModule } from 'angular2-markdown';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,12 @@ import { PostlistComponent } from '../postlist/postlist.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+    private post: Post;
+  
+    constructor(private postService: PostService) { }
+  
+    ngOnInit() {
+      this.postService.getMostRecent().subscribe(p => this.post = p);
+    }
 
 }

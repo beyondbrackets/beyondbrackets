@@ -1,7 +1,6 @@
 <section *ngIf="posts" class = "panel-body">
 	<div *ngFor="let post of posts">
-		<h1 class="entry-title">{{post.title}}</h1>
-		<h2 class=entry-meta>Last updated {{post.date}}</h2>
-		<markdown>{{post.contents}}</markdown>
+		<h1 class="entry-title"><a class="post-link" routerLink={{post.url}}>{{post.title}}</a></h1>
+		<h2 class=entry-meta>{{post.date}}</h2>
 	</div>
 </section>

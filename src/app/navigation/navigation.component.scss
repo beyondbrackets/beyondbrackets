@@ -69,7 +69,8 @@ nav {
   top: 0;
   left: 0;
   transform: translateY(-100%);
-  width: 100%;
+  width: 100vw;
+  max-width:100%;
   li{
     list-style:none;
     text-align:center;
@@ -179,6 +180,8 @@ input[type="checkbox"].navigation-checkbox:checked + .hamburger {
   ********************************** */
 
   input[type=search] {
+    // temporary disable search bar
+    display: none;
     position: absolute;
     top: $navbar-height / 4;
     right: calc(12.5vw - #{$searchbox-width} / 2);
